@@ -21,3 +21,14 @@ describe("_.map", function() {
     expect(arr).toEqual([3, 6, 9]);
   });
 });
+
+describe("_.reduce", function() {
+  it("boils down a list of values into a single value", function() {
+    var arr = [1, 2, 3],
+        sum,
+        iterator = function(memo, num) { return memo + num; };
+
+    sum = _.reduce(arr, iterator, 0);
+    expect(sum).toEqual(6);
+  });
+});

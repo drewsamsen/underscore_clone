@@ -45,3 +45,14 @@ describe("_.find", function() {
     expect(found).toEqual(6);
   });
 });
+
+describe("_.filter", function() {
+  it("returns subset of collection that passes truth test (predicate)", function() {
+    var arr = [1, 2, 3, 4, 5, 6, 7, 8, 12],
+        matches = [],
+        predicate = function(num) { return num % 2 === 0; };
+
+    matches = _.filter(arr, predicate);
+    expect(matches).toEqual([2, 4, 6, 8, 12]);
+  });
+});

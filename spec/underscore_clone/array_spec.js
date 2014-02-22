@@ -11,3 +11,13 @@ describe("_.each", function() {
     expect(memo).toEqual([1, 2, 3]);
   });
 });
+
+describe("_.map", function() {
+  it("produces a new array of values by mapping each value in a list through a function", function() {
+    var arr = [1, 2, 3],
+        iterator = function(value) { return value * 3; };
+    _.map(arr, iterator);
+
+    expect(arr).toEqual([3, 6, 9]);
+  });
+});

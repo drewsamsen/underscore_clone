@@ -32,3 +32,16 @@ describe("_.reduce", function() {
     expect(sum).toEqual(6);
   });
 });
+
+describe("_.reduceRight", function() {
+});
+
+describe("_.find", function() {
+  it("returns the first that passes truth test (predicate)", function() {
+    var arr = [1, 3, 7, 6, 11, 2],
+        found,
+        predicate = function(num) { return num % 2 === 0; };
+    found = _.find(arr, predicate);
+    expect(found).toEqual(6);
+  });
+});

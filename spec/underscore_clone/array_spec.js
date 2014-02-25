@@ -108,3 +108,19 @@ describe("_.all", function() {
   });
 
 });
+
+describe("_.findWhere", function() {
+  it("returns the first value that matches all of the key-value pairs listed in properties", function() {
+    var books = [
+      { type: "fiction", name: "The Road"},
+      { type: "nonfiction", name: "Seneca"},
+      { type: "fiction", name: "1984", author: "Orwell"},
+      { type: "nonfiction", name: "Antifragile"}
+    ],
+        properties = { type: "fiction", name: "1984" },
+        found;
+
+    found = _.findWhere(books, properties);
+    expect(found).toEqual( { type: "fiction", name: "1984", author: "Orwell"} );
+  });
+});

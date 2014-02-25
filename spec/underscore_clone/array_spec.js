@@ -56,3 +56,55 @@ describe("_.filter", function() {
     expect(matches).toEqual([2, 4, 6, 8, 12]);
   });
 });
+
+describe("_.where", function() {
+  it("returns subset of collection with matching object properties", function() {
+    var books = [
+      { type: "fiction", name: "The Road"},
+      { type: "nonfiction", name: "Seneca"},
+      { type: "fiction", name: "1984"},
+      { type: "nonfiction", name: "Antifragile"}
+    ],
+        fiction = [
+      { type: "fiction", name: "The Road"},
+      { type: "fiction", name: "1984"},
+    ],
+        found;
+
+    found = _.where(books, {type: "fiction"});
+    expect(found).toEqual(fiction);
+  });
+
+  it("handles multiple property criteria", function() {
+    var books = [
+      { type: "fiction", name: "The Road"},
+      { type: "nonfiction", name: "Seneca"},
+      { type: "fiction", name: "1984"},
+      { type: "nonfiction", name: "Antifragile"}
+    ],
+        found;
+
+    found = _.where(books, {type: "fiction", name: "The Road"});
+    expect(found).toEqual( [{ type: "fiction", name: "The Road"}] );
+  });
+
+});
+
+describe("_.all", function() {
+  it("checks if all elements in a collection pass a predicate", function() {
+    var even = [2, 4, 6, 12, 34],
+        predicate = function(num) { return num % 2 === 0; },
+        result;
+    result = _.all(even, predicate);
+    expect(result).toEqual(true);
+  });
+
+  it("fails if all elements do not pass predicate", function() {
+    var even = [2, 4, 7, 12, 34],
+        predicate = function(num) { return num % 2 === 0; },
+        result;
+    result = _.all(even, predicate);
+    expect(result).toEqual(false);
+  });
+
+});

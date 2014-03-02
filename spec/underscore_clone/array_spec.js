@@ -133,3 +133,19 @@ describe("_.reject", function() {
     expect(_.reject(nums, predicate)).toEqual( [1, 3, 5, 7] );
   });
 });
+
+describe("_.some", function() {
+  it("Returns true if any of the values in the list pass the predicate truth test", function() {
+    var nums = [1, 5, 7, 5, 4, 3, 2],
+        evenTest = function(num) { return num % 2 === 0; };
+
+    expect(_.some(nums, evenTest)).toEqual(true);
+  });
+
+  it("Returns false if none of the values in the list pass the predicate truth test", function() {
+    var nums = [1, 5, 7, 5, 11, 3, 9],
+        evenTest = function(num) { return num % 2 === 0; };
+
+    expect(_.some(nums, evenTest)).toEqual(false);
+  });
+});

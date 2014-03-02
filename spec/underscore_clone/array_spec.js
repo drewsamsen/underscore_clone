@@ -90,12 +90,12 @@ describe("_.where", function() {
 
 });
 
-describe("_.all", function() {
+describe("_.every", function() {
   it("checks if all elements in a collection pass a predicate", function() {
     var even = [2, 4, 6, 12, 34],
         predicate = function(num) { return num % 2 === 0; },
         result;
-    result = _.all(even, predicate);
+    result = _.every(even, predicate);
     expect(result).toEqual(true);
   });
 
@@ -103,7 +103,7 @@ describe("_.all", function() {
     var even = [2, 4, 7, 12, 34],
         predicate = function(num) { return num % 2 === 0; },
         result;
-    result = _.all(even, predicate);
+    result = _.every(even, predicate);
     expect(result).toEqual(false);
   });
 

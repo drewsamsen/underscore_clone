@@ -149,3 +149,45 @@ describe("_.some", function() {
     expect(_.some(nums, evenTest)).toEqual(false);
   });
 });
+
+describe("_.contains", function() {
+
+  describe("when object is an array", function() {
+
+    it("returns true if the value is present in the list", function() {
+      var nums = [1, 2, 3, 4];
+      expect( _.contains(nums, 3)).toEqual(true);
+    });
+
+    it("returns false if the value is NOT present in the list", function() {
+      var nums = [1, 2, 3, 4];
+      expect( _.contains(nums, 5)).toEqual(false);
+    });
+  });
+
+  //
+  // NOTE: Not sure if this needs to be implemented...
+  //
+
+  // describe("when object is an array of objects", function() {
+
+  //   var books = [
+  //     { type: "fiction", name: "The Road"},
+  //     { type: "nonfiction", name: "Seneca"},
+  //     { type: "fiction", name: "1984", author: "Orwell"},
+  //     { type: "nonfiction", name: "Antifragile"}
+  //   ];
+
+  //   it("returns true if the value is present in the list", function() {
+  //     expect( _.contains(books, {type: "nonfiction", name: "Seneca"})).toEqual(true);
+  //   });
+
+  //   it("returns false if the value is NOT present in the list", function() {
+  //     expect( _.contains(books, { type: "fiction", name: "Harry Potter"})).toEqual(false);
+  //   });
+  // });
+
+});
+
+
+

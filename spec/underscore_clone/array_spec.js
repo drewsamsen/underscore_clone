@@ -124,3 +124,12 @@ describe("_.findWhere", function() {
     expect(found).toEqual( { type: "fiction", name: "1984", author: "Orwell"} );
   });
 });
+
+describe("_.reject", function() {
+  it("removes items from a list that are true for a test predicate", function() {
+    var nums = [1, 2, 3, 4, 5, 6, 7],
+        predicate = function(num) { return num % 2 === 0; };
+
+    expect(_.reject(nums, predicate)).toEqual( [1, 3, 5, 7] );
+  });
+});

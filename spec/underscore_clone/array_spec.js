@@ -96,7 +96,7 @@ describe("_.every", function() {
         predicate = function(num) { return num % 2 === 0; },
         result;
     result = _.every(even, predicate);
-    expect(result).toEqual(true);
+    expect(result).toBeTruthy();
   });
 
   it("fails if all elements do not pass predicate", function() {
@@ -104,7 +104,7 @@ describe("_.every", function() {
         predicate = function(num) { return num % 2 === 0; },
         result;
     result = _.every(even, predicate);
-    expect(result).toEqual(false);
+    expect(result).toBeFalsy();
   });
 
 });
@@ -139,14 +139,14 @@ describe("_.some", function() {
     var nums = [1, 5, 7, 5, 4, 3, 2],
         evenTest = function(num) { return num % 2 === 0; };
 
-    expect(_.some(nums, evenTest)).toEqual(true);
+    expect(_.some(nums, evenTest)).toBeTruthy();
   });
 
   it("Returns false if none of the values in the list pass the predicate truth test", function() {
     var nums = [1, 5, 7, 5, 11, 3, 9],
         evenTest = function(num) { return num % 2 === 0; };
 
-    expect(_.some(nums, evenTest)).toEqual(false);
+    expect(_.some(nums, evenTest)).toBeFalsy();
   });
 });
 
@@ -156,12 +156,12 @@ describe("_.contains", function() {
 
     it("returns true if the value is present in the list", function() {
       var nums = [1, 2, 3, 4];
-      expect( _.contains(nums, 3)).toEqual(true);
+      expect( _.contains(nums, 3)).toBeTruthy();
     });
 
     it("returns false if the value is NOT present in the list", function() {
       var nums = [1, 2, 3, 4];
-      expect( _.contains(nums, 5)).toEqual(false);
+      expect( _.contains(nums, 5)).toBeFalsy();
     });
   });
 
